@@ -16,11 +16,11 @@
 
     <style>
         :root {
-            --primary-color: #1a73e8;
-            --secondary-color: #34a853;
-            --dark-color: #1f2937;
-            --light-color: #ffffff;
-            --gray-color: #f8f9fa;
+            --primary-color: #6ea8fe;
+            --secondary-color: #4ade80;
+            --dark-color: #111827;
+            --light-color: #e5e7eb;
+            --gray-color: #1f2937;
             --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         }
 
@@ -37,7 +37,11 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: var(--gray-color);
+            background: linear-gradient(rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.9)),
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             padding: 2rem;
             text-align: center;
         }
@@ -46,6 +50,11 @@
             max-width: 600px;
             margin: 0 auto;
             animation: fadeIn 1s ease-out;
+            padding: 3rem;
+            background: rgba(31, 41, 55, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(110, 168, 254, 0.1);
         }
 
         @keyframes fadeIn {
@@ -68,18 +77,19 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
             line-height: 1;
+            text-shadow: 0 0 30px rgba(110, 168, 254, 0.3);
         }
 
         .error-message {
             font-size: 1.5rem;
-            color: var(--dark-color);
+            color: var(--light-color);
             margin-bottom: 2rem;
         }
 
         .home-btn {
             padding: 1rem 2.5rem;
             background: var(--gradient);
-            color: white;
+            color: var(--dark-color);
             border: none;
             border-radius: 25px;
             font-weight: 500;
@@ -91,7 +101,7 @@
 
         .home-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(26, 115, 232, 0.4);
+            box-shadow: 0 5px 15px rgba(110, 168, 254, 0.4);
         }
     </style>
 </head>
@@ -100,7 +110,7 @@
     <div class="error-container">
         <div class="error-code">404</div>
         <h1 class="error-message">Oops! Page Not Found</h1>
-        <p style="margin-bottom: 2rem; color: #666;">The page you're looking for doesn't exist or has been moved.</p>
+        <p style="margin-bottom: 2rem; color: #9ca3af;">The page you're looking for doesn't exist or has been moved.</p>
         <a href="/" class="home-btn">Back to Home</a>
     </div>
 </body>
