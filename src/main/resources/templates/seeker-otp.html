@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,7 @@
         body {
             line-height: 1.6;
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80");
+                url("https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80");
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -48,7 +48,7 @@
         }
 
         .otp-container {
-            background: white;
+            background-color: #111827;
             padding: 3rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -163,14 +163,13 @@
             <th:block th:text="${@messageRemover.remove()}"></th:block>
         </div>
 
-        <form th:action="@{/jobseeker/otp}" method="post" class="otp-form">
-            <input type="text" name="otp" class="otp-input" placeholder="Enter OTP" maxlength="6" required 
-                   pattern="[0-9]{6}" title="Please enter a 6-digit OTP">
+        <form action="/jobseeker/otp" method="post" class="otp-form">
+            <input type="text" name="otp" class="otp-input" placeholder="Enter OTP" maxlength="6" required>
             <input type="hidden" name="id" th:value="${id}">
             <button type="submit" class="submit-btn">Verify OTP</button>
         </form>
 
-        <a th:href="@{/jobseeker/resend-otp/{id}(id=${id})}" class="resend-link">Resend OTP</a>
+        <a th:href="'/jobseeker/resend-otp/'+${id}" class="resend-link">Resend OTP</a>
     </div>
 </body>
 </html>
