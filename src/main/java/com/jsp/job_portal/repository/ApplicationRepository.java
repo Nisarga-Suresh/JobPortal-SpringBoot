@@ -10,5 +10,6 @@ import com.jsp.job_portal.dto.JobApplication;
 public interface ApplicationRepository extends JpaRepository<JobApplication,Integer>{
 
     List<JobApplication> findByJob(Job job);
+    List<JobApplication> findByJobId(int jobId);
 
 }

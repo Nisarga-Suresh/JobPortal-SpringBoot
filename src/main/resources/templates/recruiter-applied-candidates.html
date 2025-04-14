@@ -36,14 +36,31 @@
 
         body {
             line-height: 1.6;
-            background-color: var(--gray-color);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            position: relative;
+            color: var(--light-color);
         }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1505506874110-6a7a69069a08');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.4);
+            z-index: -1;
+        }
+        
 
         .navbar {
-            background-color: rgba(255, 255, 255, 0.98);
+            background-color: rgba(17, 24, 39, 0.9);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
@@ -53,6 +70,7 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
@@ -70,6 +88,8 @@
             max-width: 1400px;
             margin: 0 auto;
             margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
         }
 
         .candidates-grid {
@@ -79,15 +99,18 @@
         }
 
         .candidate-card {
-            background: white;
+            background-color: rgba(17, 24, 39, 0.85);
             border-radius: 15px;
             padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .candidate-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
         .candidate-image {
@@ -98,6 +121,7 @@
             display: block;
             object-fit: cover;
             border: 3px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .candidate-info {
@@ -107,7 +131,7 @@
 
         .candidate-name {
             font-size: 1.4rem;
-            color: var(--dark-color);
+            color: var(--light-color);
             margin-bottom: 0.5rem;
         }
 
@@ -116,6 +140,7 @@
             font-size: 0.9rem;
             margin-bottom: 1rem;
         }
+        
         .logout-btn {
             background: transparent;
             color: var(--primary-color);
@@ -135,6 +160,7 @@
             color: white;
             border-color: transparent;
         }
+        
         .download-btn {
             display: block;
             width: 100%;
@@ -153,10 +179,12 @@
         }
 
         .footer {
-            background-color: var(--dark-color);
+            background-color: rgba(17, 24, 39, 0.9);
             color: white;
             padding: 1.3rem 5%;
             margin-top: auto;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-content {
@@ -219,10 +247,10 @@
                 </p>
                 <form th:action="'/recruiter/update-status/'+${applier.getApplication(job).id}" method="post">
                 <select class="download-btn" name="status" style="margin-top: 1rem; cursor: pointer; appearance: none; background: var(--gradient); color: white; font-size: 0.9rem; font-weight: 500; border: none; padding: 0.8rem;">
-                    <option value="" style="background: white; color: var(--dark-color);">Change Status</option>
-                    <option value="ACCEPTED" style="background: white; color: var(--dark-color);">Accept</option>
-                    <option value="REJECTED" style="background: white; color: var(--dark-color);">Reject</option>
-                    <option value="SCHEDULED" style="background: white; color: var(--dark-color);">Schedule</option>
+                    <option value="" style="background-color: rgba(17, 24, 39, 0.9); color: white;">Change Status</option>
+                    <option value="ACCEPTED" style="background-color: rgba(17, 24, 39, 0.9); color: white;">Accept</option>
+                    <option value="REJECTED" style="background-color: rgba(17, 24, 39, 0.9); color: white;">Reject</option>
+                    <option value="SCHEDULED" style="background-color: rgba(17, 24, 39, 0.9); color: white;">Schedule</option>
                 </select>
                 <br>
                 <button class="download-btn">Update</button>

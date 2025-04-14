@@ -177,12 +177,17 @@ public class JobSeeker {
 	private String resumeUrl;
 	private String profilePicUrl;
 
-	public JobApplication getStatus(Job job) {
-		for(JobApplication application : this.jobApplications){
-			if(application.getJob().getId() == job.getId()){
+	public JobApplication getApplication(Job job) {
+		if (jobApplications == null) {
+			return null;
+		}
+		
+		for (JobApplication application : jobApplications) {
+			if (application.getJob().getId() == job.getId()) {
 				return application;
 			}
 		}
+		
 		return null;
 	}
 }

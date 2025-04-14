@@ -20,12 +20,17 @@
 
     <style>
         :root {
-            --primary-color: #1a73e8;
-            --secondary-color: #34a853;
-            --dark-color: #1f2937;
-            --light-color: #ffffff;
-            --gray-color: #f8f9fa;
+            --primary-color: #4f46e5;
+            --secondary-color: #10b981;
+            --dark-color: #111827;
+            --darker-color: #0f172a;
+            --light-color: #e5e7eb;
+            --gray-color: #1f2937;
             --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --card-bg: #1e293b;
+            --input-bg: #374151;
+            --text-color: #f3f4f6;
+            --muted-text: #9ca3af;
         }
 
         * {
@@ -37,14 +42,15 @@
 
         body {
             line-height: 1.6;
-            background-color: var(--gray-color);
+            background-color: var(--darker-color);
+            color: var(--text-color);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
         .navbar {
-            background-color: rgba(255, 255, 255, 0.98);
+            background-color: var(--dark-color);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
@@ -53,7 +59,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
         }
 
         .logo {
@@ -80,7 +86,6 @@
 
         .page-title {
             font-size: 2.5rem;
-            color: var(--dark-color);
             margin-bottom: 2rem;
             text-align: center;
             background: var(--gradient);
@@ -90,16 +95,17 @@
         }
 
         .profile-section {
-            background: white;
+            background: var(--card-bg);
             border-radius: 15px;
             padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .section-title {
             font-size: 1.4rem;
-            color: var(--dark-color);
+            color: var(--light-color);
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--gray-color);
@@ -115,23 +121,25 @@
         .form-label {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--dark-color);
+            color: var(--light-color);
             font-weight: 500;
         }
 
         .form-control {
             width: 100%;
             padding: 0.8rem 1rem;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #4b5563;
             border-radius: 8px;
             font-size: 1rem;
             transition: all 0.3s ease;
+            background-color: var(--input-bg);
+            color: var(--text-color);
         }
 
         .form-control:focus {
             border-color: var(--primary-color);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
         }
 
         .row {
@@ -145,6 +153,7 @@
             align-items: center;
             gap: 0.5rem;
             margin-bottom: 1rem;
+            color: var(--light-color);
         }
 
         .logout-btn {
@@ -183,7 +192,33 @@
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(26, 115, 232, 0.4);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        }
+
+        input[type="file"] {
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            border: 2px solid #4b5563;
+            padding: 0.5rem;
+        }
+
+        input[type="file"]::file-selector-button {
+            background: var(--gray-color);
+            color: var(--light-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background: var(--primary-color);
+        }
+
+        textarea {
+            resize: vertical;
         }
 
         @media (max-width: 768px) {
@@ -276,8 +311,7 @@
                     <input type="file" class="form-control" name="resume" accept=".pdf" required>
                 </div>
             </div>
-
-            <div class="profile-section">
+            <div class="profile-section" style="background: linear-gradient(135deg, #2a3f5f, #1e293b); border: 1px solid rgba(79, 70, 229, 0.3);">
                 <h2 class="section-title">
                     <i class="fas fa-user-circle"></i> Profile Image
                 </h2>
